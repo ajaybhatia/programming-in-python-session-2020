@@ -13,5 +13,21 @@ Hint: All HCN are even numbers
 '''
 
 
+def factors_count(num):
+    count = 0
+    for i in range(1, num+1):
+        if num % i == 0:
+            count += 1
+    return count
+
+
+prev_factors = 0
 for num in range(1, 100001):
-  # Logic
+    # Logic to check a number whether
+    # it is even or odd. If the number
+    # is odd then it cannot be HCN
+    if num == 1 or num % 2 == 0:  # Test for Even number
+        current_count = factors_count(num)
+        if current_count > prev_factors:
+            prev_factors = current_count
+            print(num)
